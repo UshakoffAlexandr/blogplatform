@@ -1,0 +1,41 @@
+.header {
+  width: 100%;
+  height: 80px;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+
+  font-size: 18px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
+  background-color: #fff;
+
+  & :first-child {
+    margin-right: auto;
+    font-weight: 400;
+  }
+}
+
+.logInOutButton {
+  height: 50px;
+  border: 1px solid;
+  & > span {
+    margin-right: 0;
+  }
+}
+
+.lightfreen {
+  border: 1px solid #52c41a;
+  color: #52c41a;
+}
+
+.black {
+  border-color: black;
+  color: black;
+}
