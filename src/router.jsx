@@ -10,9 +10,18 @@ import CreateArticle from "./components/CreateArticle/CreateArticle";
 import EditArticle from "./components/EditArticle/EditArticle";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
+const ROOT = "/";
+const ARTICLES = "/articles";
+const ARTICLE_SLUG = "/articles/:slug";
+const EDIT_ARTICLE = "/articles/:slug/edit";
+const NEW_ARTICLE = "/new-article";
+const SIGN_UP = "/sign-up";
+const SIGN_IN = "/sign-in";
+const PROFILE = "/profile";
+
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: ROOT,
     element: <App />,
     children: [
       {
@@ -20,15 +29,15 @@ const router = createBrowserRouter([
         element: <ArticlesList />,
       },
       {
-        path: "/articles",
+        path: ARTICLES,
         element: <ArticlesList />,
       },
       {
-        path: "/articles/:slug",
+        path: ARTICLE_SLUG,
         element: <ArticleContent />,
       },
       {
-        path: "/articles/:slug/edit",
+        path: EDIT_ARTICLE,
         element: (
           <PrivateRoute>
             <EditArticle />
@@ -36,7 +45,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/new-article",
+        path: NEW_ARTICLE,
         element: (
           <PrivateRoute>
             <CreateArticle />
@@ -44,15 +53,15 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/sign-up",
+        path: SIGN_UP,
         element: <SignUp />,
       },
       {
-        path: "/sign-in",
+        path: SIGN_IN,
         element: <SignIn />,
       },
       {
-        path: "/profile",
+        path: PROFILE,
         element: <Profile />,
       },
     ],
