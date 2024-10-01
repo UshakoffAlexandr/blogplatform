@@ -1,1 +1,1 @@
-https://blogplatform-smoky.vercel.app/
+https://blogplatform2.vercel.app/
