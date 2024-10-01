@@ -1,5 +1,5 @@
 import { message } from "antd";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { useAddArticleMutation } from "../../redux/articlesApi";
 
 import ArticleForm from "../ArticleForm/ArticleForm";
@@ -9,7 +9,12 @@ export default function CreateArticle() {
 
   const [addArticle] = useAddArticleMutation();
 
-  const handleOnFinish = async ({ desc: description, tags: tagList, text: body, title }) => {
+  const handleOnFinish = async ({
+    desc: description,
+    tags: tagList,
+    text: body,
+    title,
+  }) => {
     const request = {
       article: {
         title,
@@ -30,5 +35,7 @@ export default function CreateArticle() {
       });
   };
 
-  return <ArticleForm formTitle='Create article' handleOnFinish={handleOnFinish} />;
+  return (
+    <ArticleForm formTitle="Create article" handleOnFinish={handleOnFinish} />
+  );
 }

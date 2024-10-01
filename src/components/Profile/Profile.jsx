@@ -1,6 +1,14 @@
 import { useEffect } from "react";
-import { ConfigProvider, Flex, Typography, Form, Input, Button, message } from "antd";
-import { useNavigate } from "react-router";
+import {
+  ConfigProvider,
+  Flex,
+  Typography,
+  Form,
+  Input,
+  Button,
+  message,
+} from "antd";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "antd/es/form/Form";
 import { useGetUserQuery, useEditProfileMutation } from "../../redux/userApi";
 import styles from "./Profile.module.scss";
@@ -23,7 +31,12 @@ export default function Profile() {
     });
   }, [form, oldUsername, oldEmail, oldImage]);
 
-  const handleFinish = async ({ oldUsername: username, oldEmail: email, password, oldImage: image }) => {
+  const handleFinish = async ({
+    oldUsername: username,
+    oldEmail: email,
+    password,
+    oldImage: image,
+  }) => {
     const request = {
       user: {
         username,
@@ -68,42 +81,58 @@ export default function Profile() {
         },
       }}
     >
-      <Flex vertical align='center' justify='center' className={styles["profile-container"]}>
+      <Flex
+        vertical
+        align="center"
+        justify="center"
+        className={styles["profile-container"]}
+      >
         <Title level={4}>Edit Profile</Title>
-        <Form form={form} layout='vertical' size='large' onFinish={handleFinish}>
+        <Form
+          form={form}
+          layout="vertical"
+          size="large"
+          onFinish={handleFinish}
+        >
           <Form.Item
-            label='Username'
-            name='oldUsername'
+            label="Username"
+            name="oldUsername"
             rules={[{ required: true, message: "Please input your username!" }]}
           >
-            <Input placeholder='New username' />
+            <Input placeholder="New username" />
           </Form.Item>
           <Form.Item
-            label='Email address'
-            name='oldEmail'
+            label="Email address"
+            name="oldEmail"
             rules={[
               { required: true, message: "Please input your email!" },
               { type: "email", message: "Please enter a valid email!" },
             ]}
           >
-            <Input placeholder='New email' />
+            <Input placeholder="New email" />
           </Form.Item>
           <Form.Item
-            label='New Password'
-            name='password'
-            rules={[{ min: 6, max: 40, message: "Password must be between 6 and 40 characters" }]}
+            label="New Password"
+            name="password"
+            rules={[
+              {
+                min: 6,
+                max: 40,
+                message: "Password must be between 6 and 40 characters",
+              },
+            ]}
           >
-            <Input.Password placeholder='New password' />
+            <Input.Password placeholder="New password" />
           </Form.Item>
           <Form.Item
-            label='Avatar image (url)'
-            name='oldImage'
+            label="Avatar image (url)"
+            name="oldImage"
             rules={[{ type: "url", message: "Please enter a valid URL!" }]}
           >
-            <Input placeholder='Avatar image' />
+            <Input placeholder="Avatar image" />
           </Form.Item>
           <Form.Item>
-            <Button type='primary' block size='large' htmlType='submit'>
+            <Button type="primary" block size="large" htmlType="submit">
               Save
             </Button>
           </Form.Item>

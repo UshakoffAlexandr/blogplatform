@@ -1,7 +1,10 @@
 import Markdown from "react-markdown";
-import { useNavigate, useParams } from "react-router";
+import { useNavigate, useParams } from "react-router-dom";
 import { ConfigProvider, Button, Flex, message, Popconfirm } from "antd";
-import { useDeleteArticleMutation, useGetArticleQuery } from "../../redux/articlesApi";
+import {
+  useDeleteArticleMutation,
+  useGetArticleQuery,
+} from "../../redux/articlesApi";
 import ArticleInfo from "../ArticleInfo/ArticleInfo";
 import Author from "../Author/Author";
 
@@ -34,10 +37,10 @@ export default function ArticleContent() {
   const manageButtons = (
     <Flex gap={15}>
       <Popconfirm
-        placement='rightTop'
-        title='Are you sure to delete this article?'
-        cancelText='No'
-        okText='Yes'
+        placement="rightTop"
+        title="Are you sure to delete this article?"
+        cancelText="No"
+        okText="Yes"
         onConfirm={onConfirm}
       >
         <Button danger>Delete</Button>

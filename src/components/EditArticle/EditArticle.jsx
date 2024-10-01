@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 import { message } from "antd";
-import { useParams, useNavigate } from "react-router";
-import { useEditArticleMutation, useGetArticleQuery } from "../../redux/articlesApi";
+import { useParams, useNavigate } from "react-router-dom";
+import {
+  useEditArticleMutation,
+  useGetArticleQuery,
+} from "../../redux/articlesApi";
 import ArticleForm from "../ArticleForm/ArticleForm";
 
 export default function EditArticle() {
@@ -23,7 +26,12 @@ export default function EditArticle() {
     }
   }, [article]);
 
-  const handleOnFinish = async ({ desc: description, tags: tagList, text: body, title }) => {
+  const handleOnFinish = async ({
+    desc: description,
+    tags: tagList,
+    text: body,
+    title,
+  }) => {
     const request = {
       article: {
         title,
@@ -44,5 +52,11 @@ export default function EditArticle() {
       });
   };
 
-  return <ArticleForm formTitle='Edit article' handleOnFinish={handleOnFinish} initialValues={initialValues} />;
+  return (
+    <ArticleForm
+      formTitle="Edit article"
+      handleOnFinish={handleOnFinish}
+      initialValues={initialValues}
+    />
+  );
 }

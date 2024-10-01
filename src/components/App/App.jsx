@@ -1,4 +1,4 @@
-import { Outlet } from "react-router";
+import { Outlet } from "react-router-dom";
 import Header from "../Header/Header";
 
 import styles from "./App.module.scss";
