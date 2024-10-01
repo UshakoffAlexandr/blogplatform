@@ -13,6 +13,10 @@ export default function Author({ author, createdAt, toOpen }) {
     return component;
   };
 
+  const handleImageError = (e) => {
+    e.target.src = logo;
+  };
+
   return (
     <Title
       level={4}
@@ -34,6 +38,7 @@ export default function Author({ author, createdAt, toOpen }) {
           src={author.image ? author.image : logo}
           alt="author profile icon"
           className={styles["author-icon"]}
+          onError={handleImageError}
         />
       )}
     </Title>
